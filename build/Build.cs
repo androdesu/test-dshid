@@ -9,6 +9,17 @@ using Nuke.Common.Tools.MSBuild;
 
 using Serilog;
 
+[GitHubActions(
+    "ci",                                           // Workflow name
+    GitHubActionsImage.WindowsLatest,              // Runner OS
+    On = new[] { 
+        GitHubActionsTrigger.Push,                 // Triggers on push
+        GitHubActionsTrigger.PullRequest           // Triggers on PR
+    },
+    InvokedTargets = new[] { nameof(Compile) },    // What to run
+    ImportSecrets = new[] { nameof(NuGetApiKey) }  // Secrets to import
+)]
+
 class Build : NukeBuild
 {
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
