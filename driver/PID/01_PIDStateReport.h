@@ -28,4 +28,4 @@
 0x75, 0x07,        /*   Report Size (7) */ \
 0x95, 0x01,        /*   Report Count (1) */ \
 0x81, 0x02,        /*   Input (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position) */ \
-0xC0,              /* End Collection */ \
+0xC0,              /* End Collection */ 

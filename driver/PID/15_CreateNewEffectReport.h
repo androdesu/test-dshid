@@ -34,4 +34,4 @@
 0xB1, 0x02,        /*   Feature (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position,Non-volatile) */ \
 0x75, 0x06,        /*   Report Size (6) */ \
 0xB1, 0x01,        /*   Feature (Const,Array,Abs,No Wrap,Linear,Preferred State,No Null Position,Non-volatile) */ \
-0xC0,              /* End Collection */ \
+0xC0,              /* End Collection */ 

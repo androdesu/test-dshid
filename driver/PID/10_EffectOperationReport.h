@@ -27,4 +27,4 @@
 0x35, 0x00,        /*   Physical Minimum (0) */ \
 0x46, 0xFF, 0x00,  /*   Physical Maximum (255) */ \
 0x91, 0x02,        /*   Output (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position,Non-volatile) */ \
-0xC0,              /* End Collection */ \
+0xC0,              /* End Collection */ 

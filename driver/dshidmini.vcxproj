@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -27,6 +27,8 @@
     <ClCompile Include="DsBth.Timers.c" />
     <ClCompile Include="DsHid.c" />
     <ClCompile Include="DsHidMiniDrv.c" />
+    <ClCompile Include="DsScanner.c" />
+    <ClCompile Include="DsScannerCom.c" />
     <ClCompile Include="DsUsb.c" />
     <ClCompile Include="HID.FeatureReport.c" />
     <ClCompile Include="HID.Reports.c" />
@@ -53,6 +55,8 @@
     <ClInclude Include="DsHid.h" />
     <ClInclude Include="DsHidMiniDrv.h" />
     <ClInclude Include="DsInternal.h" />
+    <ClInclude Include="DsScanner.h" />
+    <ClInclude Include="DsScannerCom.h" />
     <ClInclude Include="DsUsb.h" />
     <ClInclude Include="HID.ReportHandlers.h" />
     <ClInclude Include="HID\01_SDF_Col1_GamePad.h" />
@@ -61,6 +65,7 @@
     <ClInclude Include="HID\03_SXS_Col1_Joystick.h" />
     <ClInclude Include="HID\04_DS4_Col1_VendorDefined.h" />
     <ClInclude Include="HID\05_XIH_Col1_XInputHID.h" />
+    <ClInclude Include="HID\06_DLS_Col1_Scanner.h" />
     <ClInclude Include="IPC.h" />
     <ClInclude Include="JSON\cJSON.h" />
     <ClInclude Include="JSON\cJSON_Utils.h" />
@@ -181,11 +186,12 @@
       <WppScanConfigurationData Condition="'%(ClCompile.ScanConfigurationData)' == ''">trace.h</WppScanConfigurationData>
       <PreprocessorDefinitions>_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions);DMF_USER_MODE</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;$(DmfRootPath)\DMF\Modules.Library;$(DmfRootPath)\DMF\Framework;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(DmfRootPath)\DMF\Modules.Library;$(DmfRootPath)\DMF\Framework;$(IntDir);C:\Users\androkami\hid\DsHidMini\DMF\Dmf\Framework;C:\Users\androkami\hid\DsHidMini\DMF\Dmf\Modules.Library;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);OneCoreUAP.lib;BluetoothApis.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);OneCoreUAP.lib;BluetoothApis.lib;</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmtd;%(IgnoreSpecificDefaultLibraries);kernel32.lib;user32.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>C:\Users\androkami\hid\DsHidMini\DMF\Debug\x64\lib\DmfK;C:\Users\androkami\hid\DsHidMini\DMF\Debug\x64\lib\DmfU;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <MessageCompile>
       <GenerateUserModeLoggingMacros>true</GenerateUserModeLoggingMacros>
@@ -201,11 +207,12 @@
       <WppScanConfigurationData Condition="'%(ClCompile.ScanConfigurationData)' == ''">trace.h</WppScanConfigurationData>
       <PreprocessorDefinitions>_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions);DMF_USER_MODE</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;$(DmfRootPath)\DMF\Modules.Library;$(DmfRootPath)\DMF\Framework;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(DmfRootPath)\DMF\Modules.Library;$(DmfRootPath)\DMF\Framework;$(IntDir);C:\Users\androkami\hid\DsHidMini\DMF\Dmf\Framework;C:\Users\androkami\hid\DsHidMini\DMF\Dmf\Modules.Library;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);OneCoreUAP.lib;BluetoothApis.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);OneCoreUAP.lib;BluetoothApis.lib;</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries);kernel32.lib;user32.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>C:\Users\androkami\hid\DsHidMini\DMF\Debug\x64\lib\DmfK;C:\Users\androkami\hid\DsHidMini\DMF\Debug\x64\lib\DmfU;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Inf>
       <TimeStamp>1.0.0.0</TimeStamp>

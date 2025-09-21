@@ -41,7 +41,12 @@ typedef enum
 	//
 	// Sony DualShock 4 Controller
 	// 
-	DsDeviceTypeWireless
+	DsDeviceTypeWireless,
+
+	//
+	// Datalogic Barcode Scanner
+	// 
+	DsDeviceTypeDatalogicScanner
 } DS_DEVICE_TYPE, * PDS_DEVICE_TYPE;
 
 //
@@ -97,7 +102,11 @@ typedef enum
 	//
 	// Microsoft XINPUTHID.SYS compatible
 	// 
-	DsHidMiniDeviceModeXInputHIDCompatible
+	DsHidMiniDeviceModeXInputHIDCompatible,
+	//
+	// Datalogic Scanner HID POS compatible
+	// 
+	DsHidMiniDeviceModeDatalogicScanner
 } DS_HID_DEVICE_MODE, * PDS_HID_DEVICE_MODE;
 
 //
@@ -110,7 +119,8 @@ static CONST PSTR G_HID_DEVICE_MODE_NAMES[] =
 	"GPJ",
 	"SXS",
 	"DS4Windows",
-	"XInput"
+	"XInput",
+	"DatalogicScanner"
 };
 
 //

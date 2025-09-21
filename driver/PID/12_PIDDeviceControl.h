@@ -12,4 +12,4 @@
 0x75, 0x08,        /*   Report Size (8) */ \
 0x95, 0x01,        /*   Report Count (1) */ \
 0x91, 0x00,        /*   Output (Data,Array,Abs,No Wrap,Linear,Preferred State,No Null Position,Non-volatile) */ \
-0xC0,              /* End Collection */ \
+0xC0,              /* End Collection */ 

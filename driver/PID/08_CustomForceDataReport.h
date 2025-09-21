@@ -25,4 +25,4 @@
 0x75, 0x08,        /*   Report Size (8) */ \
 0x95, 0x0C,        /*   Report Count (12) */ \
 0x92, 0x02, 0x01,  /*   Output (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position,Non-volatile,Buffered Bytes) */ \
-0xC0,              /* End Collection */ \
+0xC0,              /* End Collection */ 

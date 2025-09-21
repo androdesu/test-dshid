@@ -151,10 +151,27 @@ CONST HID_DESCRIPTOR G_XInputHIDCompatible_HidDescriptor = {
 	0x09,   // length of HID descriptor
 	0x21,   // descriptor type == HID  0x21
 	0x0100, // hid spec release
-	0x00,   // country code == Not Specified
+	0x00,   // country code
 	0x01,   // number of HID class descriptors
 { 0x22,   // descriptor type 
 sizeof(G_XInputHIDCompatible_HidReportDescriptor) }  // total length of report descriptor
+};
+
+//
+// Datalogic Scanner HID POS Report Descriptor
+//
+CONST HID_REPORT_DESCRIPTOR G_DatalogicScanner_HidReportDescriptor[] = {
+#include "HID/06_DLS_Col1_Scanner.h"
+};
+
+CONST HID_DESCRIPTOR G_DatalogicScanner_HidDescriptor = {
+	0x09,   // length of HID descriptor
+	0x21,   // descriptor type == HID  0x21
+	0x0100, // hid spec release
+	0x00,   // country code
+	0x01,   // number of HID class descriptors
+{ 0x22,   // descriptor type 
+sizeof(G_DatalogicScanner_HidReportDescriptor) }  // total length of report descriptor
 };
 
 #pragma endregion

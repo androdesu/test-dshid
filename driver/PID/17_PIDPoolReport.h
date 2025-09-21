@@ -27,4 +27,4 @@
 0x75, 0x06,        /*   Report Size (6) */ \
 0x95, 0x01,        /*   Report Count (1) */ \
 0xB1, 0x03,        /*   Feature (Const,Var,Abs,No Wrap,Linear,Preferred State,No Null Position,Non-volatile) */ \
-0xC0,              /* End Collection */ \
+0xC0,              /* End Collection */ 

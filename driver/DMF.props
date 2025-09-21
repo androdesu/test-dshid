@@ -5,7 +5,7 @@
   <PropertyGroup>
     <_PropertySheetDisplayName>Driver Module Framework</_PropertySheetDisplayName>
     <!-- By default, look for DMF in parent root directory, otherwise use environment variable value -->
-    <DmfRootPath Condition="'$(DmfRootPath)' == ''">$(SolutionDir)..\DMF</DmfRootPath>
+    <DmfRootPath Condition="'$(DmfRootPath)' == ''">$(SolutionDir)\DMF</DmfRootPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>

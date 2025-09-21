@@ -225,5 +225,46 @@ DSHM_ParseInputReport(
 
 #pragma endregion
 
+#pragma region HID Input Report (Datalogic Scanner) processing
+
+	if (DeviceContext->Configuration.HidDeviceMode == DsHidMiniDeviceModeDatalogicScanner)
+	{
+		// Process scanner data using our scanner module
+		status = DsScanner_ProcessInputData(
+			DeviceContext,
+			(PUCHAR)Report,
+			sizeof(DS3_RAW_INPUT_REPORT)
+		);
+
+		if (NT_SUCCESS(status))
+		{
+			// Copy scanner data to HID input report buffer
+			RtlCopyMemory(
+				ModuleDeviceContext->InputReport,
+				Report,
+				DATALOGIC_SCANNER_HID_INPUT_REPORT_SIZE
+			);
+
+			//
+			// Notify new Input Report is available
+			// 
+			status = DMF_VirtualHidMini_InputReportGenerate(
+				ModuleDeviceContext->DmfModuleVirtualHidMini,
+				DsHidMini_RetrieveNextInputReport
+			);
+			if (!NT_SUCCESS(status) && status != STATUS_NO_MORE_ENTRIES)
+			{
+				TraceError(
+					TRACE_DSHIDMINIDRV,
+					"DMF_VirtualHidMini_InputReportGenerate failed with status %!STATUS!",
+					status
+				);
+				EventWriteFailedWithNTStatus(__FUNCTION__, L"DMF_VirtualHidMini_InputReportGenerate", status);
+			}
+		}
+	}
+
+#pragma endregion
+
 	FuncExitNoReturn(TRACE_DSHIDMINIDRV);
 }

@@ -432,6 +432,26 @@ DMF_DsHidMini_Open(
 		pHidCfg->HidDeviceAttributes.VersionNumber = pDevCtx->VersionNumber;
 
 		break;
+	case DsHidMiniDeviceModeDatalogicScanner:
+
+		pHidCfg->HidDescriptor = &G_DatalogicScanner_HidDescriptor;
+		pHidCfg->HidDescriptorLength = sizeof(G_DatalogicScanner_HidDescriptor);
+		pHidCfg->HidReportDescriptor = G_DatalogicScanner_HidReportDescriptor;
+		pHidCfg->HidReportDescriptorLength = G_DatalogicScanner_HidDescriptor.DescriptorList[0].wReportLength;
+
+		// Initialize scanner device
+		status = DsScanner_Initialize(pDevCtx);
+		if (!NT_SUCCESS(status))
+		{
+			TraceError(
+				TRACE_DSHIDMINIDRV,
+				"DsScanner_Initialize failed with status %!STATUS!",
+				status
+			);
+			goto exit;
+		}
+
+		break;
 	default:
 
 		status = STATUS_INVALID_PARAMETER;
@@ -530,6 +550,9 @@ DsHidMini_RetrieveNextInputReport(
 		break;
 	case DsHidMiniDeviceModeXInputHIDCompatible:
 		*BufferSize = XINPUTHID_HID_INPUT_REPORT_SIZE;
+		break;
+	case DsHidMiniDeviceModeDatalogicScanner:
+		*BufferSize = DATALOGIC_SCANNER_HID_INPUT_REPORT_SIZE;
 		break;
 	default:
 		TraceError(

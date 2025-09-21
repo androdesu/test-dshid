@@ -29,4 +29,4 @@
 0x91, 0x02,        /*   Output (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position,Non-volatile) */ \
 0x55, 0x00,        /*   Unit Exponent (0) */ \
 0x66, 0x00, 0x00,  /*   Unit (None) */ \
-0xC0,              /* End Collection */ \
+0xC0,              /* End Collection */ 

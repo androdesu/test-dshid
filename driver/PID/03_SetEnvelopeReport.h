@@ -30,4 +30,4 @@
 0x45, 0x00,        /*   Physical Maximum (0) */ \
 0x66, 0x00, 0x00,  /*   Unit (None) */ \
 0x55, 0x00,        /*   Unit Exponent (0) */ \
-0xC0,              /* End Collection */ \
+0xC0,              /* End Collection */ 

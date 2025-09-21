@@ -40,6 +40,7 @@
 #include "DsUsb.h"
 #include "Ds3.h"
 #include "DsBth.h"
+#include "DsScanner.h"
 #include "HID.ReportHandlers.h"
 
 #include "Trace.h"
